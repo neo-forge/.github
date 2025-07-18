@@ -32,13 +32,13 @@
 #### 示例：
 
 ```bash
-feat(login): 添加用户登录接口
+feat/login: 添加用户登录接口
 
-fix(api): 修复 token 失效时无法重新获取的问题
+fix/api: 修复 token 失效时无法重新获取的问题
 
-refactor(auth): 重构权限校验流程
+refactor/auth: 重构权限校验流程
 
-docs(readme): 补充安装步骤说明
+docs/readme: 补充安装步骤说明
 ```
 
 ---
@@ -69,3 +69,55 @@ docs(readme): 补充安装步骤说明
 | `v1.4.1+build.5678` | 加入构建号追踪，用于 CI        |
 
 ---
+
+### 代码提交规范
+
+1. 创建并切换至开发分支（避免重名，会被忽略）
+
+```bash
+git checkout -b feat/分支名
+```
+
+2. 按分类提交代码（可以使用编译器进行提交，更方便一些）
+
+```bash
+git add .
+git commit -m "备注信息"
+```
+
+3. 切换到主分支拉取最新代码
+
+```bash
+git checkout main
+git pull origin main
+```
+
+4. 回到开发分支
+
+```bash
+git checkout feat/分支名
+```
+
+5. rebase 操作
+
+```bash
+git rebase main
+```
+
+6. 无冲突情况直接推送分支即可
+
+```bash
+git push origin feat/分支名
+```
+
+7. 有冲突情况需要手动解决冲突，解决后代码添加到暂存区，不要提交（commit），然后执行
+
+```bash
+git rebase --continue
+```
+
+8. 推送合并后的代码
+
+```bash
+git push origin feat/分支名
+```
